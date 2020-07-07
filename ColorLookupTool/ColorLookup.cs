@@ -1,5 +1,8 @@
 ﻿using ColorLookupTool.Util;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace ColorLookupTool
 {
@@ -10,7 +13,7 @@ namespace ColorLookupTool
     {
         private static KdTreeUtil lookup;
         private static bool initialized = false;
-
+        
         /// <summary>
         /// Initialize the color lookup module
         /// </summary>

@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Supercluster.KDTree, Version=1.0.4.0, Culture=neutral, PublicKeyToken=4423da5f8ba350cf, processorArchitecture=MSIL">
       <HintPath>..\packages\Supercluster.KDTree.1.0.4\lib\Supercluster.KDTree.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
