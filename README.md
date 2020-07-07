@@ -20,4 +20,4 @@ A simple but efficient library for detecting color name from given **RGB** value
    [eregina92/KdTree](https://github.com/eregina92/Supercluster.KDTree)
     
  - Dataset for colors with their names obtained from:
-   [Dataset by Dilmur](https://data.world/dilumr/color-names)
+   [Dataset by Dilumr](https://data.world/dilumr/color-names)
