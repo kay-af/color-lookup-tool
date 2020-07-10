@@ -50,12 +50,13 @@ namespace ColorLookupTool
         /// <param name="red">Red value (0-255)</param>
         /// <param name="green">Green value (0-255)</param>
         /// <param name="blue">Blue value (0-255)</param>
-        /// <returns>The nearest matched color name</returns>
-        public static string Match(double red, double green, double blue)
+        /// <returns>The nearest matched color information</returns>
+        public static ColorInformation Match(double red, double green, double blue)
         {
             if (!initialized) throw new LookupException("Match called before initialization");
             KdColorNode match = lookup.NearestMatch(new double[] { red, green, blue });
-            return match.colorName;
+            ColorInformation information = new ColorInformation(match.colorName, (int)match.color[0], (int)match.color[1], (int)match.color[2]);
+            return information;
         }
 
         /// <summary>
@@ -67,8 +68,8 @@ namespace ColorLookupTool
         /// </summary>
         /// <exception cref="LookupException"></exception>
         /// <param name="color">int representation of a color</param>
-        /// <returns>The nearest matched color name</returns>
-        public static string Match(int color)
+        /// <returns>The nearest matched color information</returns>
+        public static ColorInformation Match(int color)
         {
             double red = (color >> 16) & 0xff;
             double green = (color >> 8) & 0xff;
@@ -82,8 +83,8 @@ namespace ColorLookupTool
         /// </summary>
         /// <exception cref="LookupException"></exception>
         /// <param name="hexCode"># followed by six digit hex-string</param>
-        /// <returns>The nearest matched color name</returns>
-        public static string Match(string hexCode)
+        /// <returns>The nearest matched color information</returns>
+        public static ColorInformation Match(string hexCode)
         {
             if (!hexCode.StartsWith("#")) throw new LookupException("Invalid color-hex string");
             hexCode = hexCode.TrimStart('#');
