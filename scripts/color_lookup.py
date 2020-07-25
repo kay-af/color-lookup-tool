@@ -9,7 +9,7 @@ import csv
 import os
 import kdtree
 
-COLORS_CSV_PATH = os.getcwd() + "/resources/colors.csv";
+COLORS_CSV_PATH = os.path.join(os.path.dirname(__file__), "..", "resources", "colors.csv")
 
 class color_info(object):
     def __init__(self, red : int, green : int, blue : int, name : str):
@@ -42,7 +42,7 @@ class color_lookup:
     
     def __init__(self):
         colors_arr = []
-        with open( COLORS_CSV_PATH) as colors_csv:
+        with open(COLORS_CSV_PATH) as colors_csv:
             reader = csv.reader(colors_csv, delimiter=',')
             line_count = 0
             for row in reader:

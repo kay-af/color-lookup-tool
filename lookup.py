@@ -39,5 +39,5 @@ if __name__ == "__main__":
         
         result = tool.match(color, num=k)
         print(convert_to_json(result_container("success", result = result)))
-    except:
-        print(convert_to_json(result_container("invalid arguments")))
+    except Exception as e:
+        print(convert_to_json(result_container("invalid arguments " + str(e))))
