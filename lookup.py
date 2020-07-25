@@ -21,6 +21,7 @@ def convert_to_json(obj):
     return json.dumps(obj, default = lambda o: o.to_dict())
 
 if __name__ == "__main__":
+    
     parser = argparse.ArgumentParser(description = "Get nearest color matches from a given color")
     parser.add_argument("--k", help="Number of matches required", type=int, default=1)
     parser.add_argument("red", type=int, help="The red value 0-255")
@@ -39,5 +40,5 @@ if __name__ == "__main__":
         
         result = tool.match(color, num=k)
         print(convert_to_json(result_container("success", result = result)))
-    except Exception as e:
-        print(convert_to_json(result_container("invalid arguments " + str(e))))
+    except:
+        print(convert_to_json(result_container("fail", result = "invalid arguments")))
